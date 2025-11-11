@@ -142,14 +142,14 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* Features Section */
-        .features {
+        /* Features & Section Styles */
+        section {
             padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .features h2 {
+        h2 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
@@ -189,18 +189,10 @@
         .why-choose {
             background: linear-gradient(135deg, #34495e, #2c3e50);
             color: white;
-            padding: 5rem 2rem;
         }
 
         .why-choose-content {
-            max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
-        }
-
-        .why-choose h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
         }
 
         .stats-grid {
@@ -285,130 +277,200 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">AgriSmart Rwanda</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#crops">Crops</a></li>
-                <li><a href="#pests">Pests</a></li>
-                <li><a href="#seasons">Seasons</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="language-selector">
-                <button>EN</button>
-                <button>RW</button>
-                <button>FR</button>
-            </div>
-            <button class="login-btn">Login</button>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>Smart Farming for Rwanda's Future</h1>
-        <p>AI-powered crop management, seasonal guidance, and pest control solutions</p>
-        <div class="cta-buttons">
-            <a href="#crops" class="cta-btn">Explore Crops</a>
-            <a href="#seasons" class="cta-btn">Seasons Guide</a>
-            <a href="#pests" class="cta-btn">Pest Control</a>
+<!-- Header -->
+<header>
+    <nav class="navbar">
+        <div class="logo">AgriSmart Rwanda</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#crops">Crops</a></li>
+            <li><a href="#pests">Pests</a></li>
+            <li><a href="#seasons">Seasons</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="language-selector">
+            <button>EN</button>
+            <button>RW</button>
+            <button>FR</button>
         </div>
-    </section>
+        <button class="login-btn">Login</button>
+    </nav>
+</header>
 
-    <!-- Features Section -->
-    <section class="features">
-        <h2>Our Smart Farming Solutions</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Crop Management</h3>
-                <p>AI-powered insights for optimal crop growth and yield maximization</p>
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <h1>Smart Farming for Rwanda's Future</h1>
+    <p>AI-powered crop management, seasonal guidance, and pest control solutions</p>
+    <div class="cta-buttons">
+        <a href="#crops" class="cta-btn">Explore Crops</a>
+        <a href="#seasons" class="cta-btn">Seasons Guide</a>
+        <a href="#pests" class="cta-btn">Pest Control</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <h2>Our Smart Farming Solutions</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>Crop Management</h3>
+            <p>AI-powered insights for optimal crop growth and yield maximization</p>
+        </div>
+        <div class="feature-card">
+            <h3>Seasonal Planning</h3>
+            <p>Smart recommendations for planting and harvesting based on seasons</p>
+        </div>
+        <div class="feature-card">
+            <h3>Pest Control</h3>
+            <p>Early detection and effective solutions for pest management</p>
+        </div>
+        <div class="feature-card">
+            <h3>Weather Integration</h3>
+            <p>Real-time weather data for better farming decisions</p>
+        </div>
+    </div>
+</section>
+
+<!-- Crops Section -->
+<section id="crops">
+    <h2>Popular Crops in Rwanda</h2>
+    <div class="features-grid" id="crops-grid">
+        <!-- Crops will be populated here dynamically -->
+    </div>
+</section>
+
+<!-- Pests Section -->
+<section id="pests">
+    <h2>Common Crop Pests</h2>
+    <div class="features-grid" id="pests-grid">
+        <!-- Pests will be populated here dynamically -->
+    </div>
+</section>
+
+<!-- Seasons Section -->
+<section id="seasons">
+    <h2>Seasonal Planting Guide</h2>
+    <div class="features-grid" id="seasons-grid">
+        <!-- Seasons info populated dynamically -->
+    </div>
+</section>
+
+<!-- Why Choose Section -->
+<section class="why-choose">
+    <div class="why-choose-content">
+        <h2>Why Choose AgriSmart?</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Crops in our comprehensive database</p>
             </div>
-            <div class="feature-card">
-                <h3>Seasonal Planning</h3>
-                <p>Smart recommendations for planting and harvesting based on seasons</p>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Rwanda-focused solutions</p>
             </div>
-            <div class="feature-card">
-                <h3>Pest Control</h3>
-                <p>Early detection and effective solutions for pest management</p>
-            </div>
-            <div class="feature-card">
-                <h3>Weather Integration</h3>
-                <p>Real-time weather data for better farming decisions</p>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Expert support available</p>
             </div>
         </div>
-    </section>
-
-    <!-- Why Choose Section -->
-    <section class="why-choose">
-        <div class="why-choose-content">
-            <h2>Why Choose AgriSmart?</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Crops in our comprehensive database</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Rwanda-focused solutions</p>
-                </div>
-                <div class="stat-item">
-                    <h3>24/7</h3>
-                    <p>Expert support available</p>
-                </div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <h4>Pest Management</h4>
+                <p>Identify and control pests effectively with our AI-powered detection system and proven solutions tailored for Rwandan agriculture.</p>
             </div>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <h4>Pest Management</h4>
-                    <p>Identify and control pests effectively with our AI-powered detection system and proven solutions tailored for Rwandan agriculture.</p>
-                </div>
-                <div class="benefit-item">
-                    <h4>Seasonal Guide</h4>
-                    <p>Know exactly what to plant in each season with our comprehensive planting calendar and crop rotation recommendations.</p>
-                </div>
-                <div class="benefit-item">
-                    <h4>Multi-Language</h4>
-                    <p>Available in English, Kinyarwanda & French to ensure every farmer in Rwanda can access our smart farming solutions.</p>
-                </div>
+            <div class="benefit-item">
+                <h4>Seasonal Guide</h4>
+                <p>Know exactly what to plant in each season with our comprehensive planting calendar and crop rotation recommendations.</p>
+            </div>
+            <div class="benefit-item">
+                <h4>Multi-Language</h4>
+                <p>Available in English, Kinyarwanda & French to ensure every farmer in Rwanda can access our smart farming solutions.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 AgriSmart Rwanda. All rights reserved.</p>
-        <p>Smart Farming for Rwanda's Future</p>
-    </footer>
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@agrismartrwanda.com</p>
+    <p>Phone: +250 788 000 000</p>
+    <p>Address: Kigali, Rwanda</p>
+</section>
 
-    <script>
-        // Language selector functionality
-        document.querySelectorAll('.language-selector button').forEach(button => {
-            button.addEventListener('click', function() {
-                const lang = this.textContent;
-                alert(`Language changed to ${lang}`);
-                // Here you would typically implement actual language switching
-            });
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 AgriSmart Rwanda. All rights reserved.</p>
+    <p>Smart Farming for Rwanda's Future</p>
+</footer>
+
+<script>
+    // Language selector functionality
+    document.querySelectorAll('.language-selector button').forEach(button => {
+        button.addEventListener('click', function() {
+            const lang = this.textContent;
+            alert(`Language changed to ${lang}`);
         });
+    });
 
-        // Login button functionality
-        document.querySelector('.login-btn').addEventListener('click', function() {
-            alert('Login feature would open here');
-            // Here you would typically open a login modal or redirect to login page
-        });
+    // Login button functionality
+    document.querySelector('.login-btn').addEventListener('click', function() {
+        alert('Login feature would open here');
+    });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
-    </script>
+    });
+
+    // Placeholder data for crops, pests, and seasons
+    const crops = [
+        {name: 'Maize', desc: 'A staple crop grown across Rwanda.'},
+        {name: 'Irish Potato', desc: 'Thrives in cooler regions, high yield potential.'},
+        {name: 'Beans', desc: 'Important protein source, grows well in multiple regions.'},
+        {name: 'Cassava', desc: 'Drought-resistant root crop.'},
+        {name: 'Banana', desc: 'Essential fruit crop in Rwanda.'}
+        // Add more up to 100
+    ];
+
+    const pests = [
+        {name: 'Fall Armyworm', desc: 'Infests maize; control with integrated pest management.'},
+        {name: 'Colorado Potato Beetle', desc: 'Affects potatoes; monitor regularly.'},
+        {name: 'Aphids', desc: 'Sap-sucking insects that damage beans and vegetables.'},
+        {name: 'Banana Weevil', desc: 'Damages banana plants; use cultural and chemical controls.'}
+    ];
+
+    const seasons = [
+        {name: 'Long Rains (Feb-May)', desc: 'Plant maize, beans, and Irish potatoes.'},
+        {name: 'Short Rains (Sep-Dec)', desc: 'Suitable for vegetables and beans.'},
+        {name: 'Dry Season (Jun-Aug)', desc: 'Focus on irrigation-based crops or maintenance.'}
+    ];
+
+    function populateGrid(gridId, items) {
+        const grid = document.getElementById(gridId);
+        items.forEach(item => {
+            const card = document.createElement('div');
+            card.classList.add('feature-card');
+            card.innerHTML = `<h3>${item.name}</h3><p>${item.desc}</p>`;
+            grid.appendChild(card);
+        });
+    }
+
+    populateGrid('crops-grid', crops);
+    populateGrid('pests-grid', pests);
+    populateGrid('seasons-grid', seasons);
+
+</script>
+
 </body>
 </html>
