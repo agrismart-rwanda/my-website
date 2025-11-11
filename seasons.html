@@ -1,248 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriSmart Rwanda – Crops Database</title>
-  <meta name="description" content="AgriSmart Rwanda provides a comprehensive database of 100 crops grown in Rwanda, including images, descriptions, planting, and harvesting seasons.">
-  <meta name="keywords" content="AgriSmart Rwanda, Rwanda crops, crop database, planting seasons, harvest seasons, agriculture">
-  <meta name="author" content="AgriSmart Rwanda">
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriSmart Rwanda</title>
+<style>
     body {
-      font-family: Arial, sans-serif;
-      color: #2c3e50;
-      background: #f8f9fa;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+        color: #2c3e50;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    header {
+        background: #27ae60;
+        color: white;
+        padding: 1rem;
+        text-align: center;
     }
     .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
     }
     h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #27ae60;
+        color: white;
+        margin: 0;
     }
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        gap: 1.5rem;
     }
     .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+        background: white;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
     }
     .card:hover {
-      transform: translateY(-5px);
+        transform: translateY(-5px);
     }
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
+    .card h3 {
+        margin-bottom: 0.5rem;
+        color: #27ae60;
     }
-    .card .content {
-      padding: 1rem;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.5rem;
     }
-    .card .content h3 {
-      margin: 0 0 .5rem 0;
-      font-size: 1.4rem;
-      color: #27ae60;
+    th, td {
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        text-align: left;
+        font-size: 0.95rem;
     }
-    .card .content p {
-      margin: 0;
-      color: #666;
-      font-size: .95rem;
+    th {
+        background: #27ae60;
+        color: white;
     }
     @media (max-width: 768px) {
-      h1 { font-size: 2rem; }
+        h1 { font-size: 1.8rem; }
     }
-    /* Navbar header styles */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, #27ae60, #2ecc71);
-      color: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .logo { font-size: 1.8rem; font-weight: bold; }
-    .nav-links { list-style: none; display: flex; gap: 1.5rem; }
-    .nav-links a { color: white; text-decoration: none; transition: opacity 0.3s; }
-    .nav-links a:hover { opacity: 0.8; }
-    .language-selector { display: flex; gap: 0.5rem; }
-    .language-selector button {
-      background: none;
-      border: 1px solid white;
-      color: white;
-      padding: 0.3rem 0.7rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .language-selector button:hover { background: white; color: #27ae60; }
-    .login-btn {
-      background: white;
-      color: #27ae60;
-      border: none;
-      padding: 0.4rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s;
-    }
-    .login-btn:hover { background: #f8f9fa; transform: translateY(-2px); }
-  </style>
+</style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
-  <nav class="navbar">
-      <div class="logo">AgriSmart Rwanda</div>
-      <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="crops.html">Crops</a></li>
-          <li><a href="seasons.html">Seasons</a></li>
-          <li><a href="#pests">Pests</a></li>
-          <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="language-selector">
-          <button>EN</button>
-          <button>RW</button>
-          <button>FR</button>
-      </div>
-      <button class="login-btn">Login</button>
-  </nav>
+    <h1>AgriSmart Rwanda – Seasonal Planting & Harvesting Guide</h1>
 </header>
 
 <div class="container">
-  <h1>Crop Database – Rwanda</h1>
-  <div class="grid" id="cropsGrid"></div>
+    <div class="grid" id="season-grid">
+        <!-- Crop seasons populated dynamically -->
+    </div>
 </div>
 
 <script>
-const crops = [
-{ name: 'Maize', desc: 'A staple cereal crop grown widely across Rwanda.', img: 'https://via.placeholder.com/300x160?text=Maize' },
-{ name: 'Irish Potato', desc: 'High-yield tuber crop, suited for cooler high altitudes.', img: 'https://via.placeholder.com/300x160?text=Irish+Potato' },
-{ name: 'Beans', desc: 'Important protein source — grows well in many regions.', img: 'https://via.placeholder.com/300x160?text=Beans' },
-{ name: 'Cassava', desc: 'Drought-tolerant root crop, good for food security.', img: 'https://via.placeholder.com/300x160?text=Cassava' },
-{ name: 'Banana (Cooking)', desc: 'Major staple in Rwanda, especially in western and central zones.', img: 'https://via.placeholder.com/300x160?text=Banana+Cooking' },
-{ name: 'Banana (Dessert)', desc: 'Sweet bananas used as fruits and snacks.', img: 'https://via.placeholder.com/300x160?text=Banana+Dessert' },
-{ name: 'Sweet Potato', desc: 'Nutritious root crop, versatile in cooking.', img: 'https://via.placeholder.com/300x160?text=Sweet+Potato' },
-{ name: 'Yams', desc: 'Root crop suitable for certain regions.', img: 'https://via.placeholder.com/300x160?text=Yams' },
-{ name: 'Soybeans', desc: 'Legume used for oil and protein production.', img: 'https://via.placeholder.com/300x160?text=Soybeans' },
-{ name: 'Groundnuts', desc: 'Valuable legume crop with protein-rich seeds.', img: 'https://via.placeholder.com/300x160?text=Groundnuts' },
-{ name: 'Tomatoes', desc: 'Widely grown vegetable for fresh consumption and sauce.', img: 'https://via.placeholder.com/300x160?text=Tomatoes' },
-{ name: 'Onions', desc: 'Essential spice and vegetable crop.', img: 'https://via.placeholder.com/300x160?text=Onions' },
-{ name: 'Garlic', desc: 'Used for seasoning and medicinal purposes.', img: 'https://via.placeholder.com/300x160?text=Garlic' },
-{ name: 'Cabbage', desc: 'Leafy vegetable, high demand locally.', img: 'https://via.placeholder.com/300x160?text=Cabbage' },
-{ name: 'Carrots', desc: 'Root vegetable, rich in nutrients.', img: 'https://via.placeholder.com/300x160?text=Carrots' },
-{ name: 'Peppers', desc: 'Vegetable used for food and spice.', img: 'https://via.placeholder.com/300x160?text=Peppers' },
-{ name: 'Eggplant', desc: 'Versatile vegetable in many dishes.', img: 'https://via.placeholder.com/300x160?text=Eggplant' },
-{ name: 'Spinach', desc: 'Leafy green vegetable, high in vitamins.', img: 'https://via.placeholder.com/300x160?text=Spinach' },
-{ name: 'Amaranth', desc: 'Leafy vegetable, grows well in Rwanda.', img: 'https://via.placeholder.com/300x160?text=Amaranth' },
-{ name: 'Pumpkin', desc: 'Grown for its fruit and seeds.', img: 'https://via.placeholder.com/300x160?text=Pumpkin' },
-{ name: 'Watermelon', desc: 'Fruit crop, popular for local markets.', img: 'https://via.placeholder.com/300x160?text=Watermelon' },
-{ name: 'Pineapple', desc: 'Tropical fruit, high demand in markets.', img: 'https://via.placeholder.com/300x160?text=Pineapple' },
-{ name: 'Papaya', desc: 'Fast-growing fruit, rich in vitamins.', img: 'https://via.placeholder.com/300x160?text=Papaya' },
-{ name: 'Passion Fruit', desc: 'Tropical fruit with high market value.', img: 'https://via.placeholder.com/300x160?text=Passion+Fruit' },
-{ name: 'Avocado', desc: 'High-value fruit rich in healthy fats.', img: 'https://via.placeholder.com/300x160?text=Avocado' },
-{ name: 'Mango', desc: 'Popular tropical fruit with high demand.', img: 'https://via.placeholder.com/300x160?text=Mango' },
-{ name: 'Apple', desc: 'Temperate fruit grown in high altitudes.', img: 'https://via.placeholder.com/300x160?text=Apple' },
-{ name: 'Pear', desc: 'Temperate fruit suitable for cooler regions.', img: 'https://via.placeholder.com/300x160?text=Pear' },
-{ name: 'Plum', desc: 'Stone fruit, temperate regions.', img: 'https://via.placeholder.com/300x160?text=Plum' },
-{ name: 'Grapes', desc: 'Fruit used for fresh consumption and wine.', img: 'https://via.placeholder.com/300x160?text=Grapes' },
-{ name: 'Strawberry', desc: 'Popular berry grown in cooler zones.', img: 'https://via.placeholder.com/300x160?text=Strawberry' },
-{ name: 'Raspberry', desc: 'Berries suitable for temperate areas.', img: 'https://via.placeholder.com/300x160?text=Raspberry' },
-{ name: 'Blueberry', desc: 'High-value berry grown in specific zones.', img: 'https://via.placeholder.com/300x160?text=Blueberry' },
-{ name: 'Lettuce', desc: 'Leafy vegetable used for salads.', img: 'https://via.placeholder.com/300x160?text=Lettuce' },
-{ name: 'Kale', desc: 'Nutritious leafy green vegetable.', img: 'https://via.placeholder.com/300x160?text=Kale' },
-{ name: 'Broccoli', desc: 'Cruciferous vegetable rich in vitamins.', img: 'https://via.placeholder.com/300x160?text=Broccoli' },
-{ name: 'Cauliflower', desc: 'Cruciferous vegetable, high demand.', img: 'https://via.placeholder.com/300x160?text=Cauliflower' },
-{ name: 'Okra', desc: 'Vegetable with edible pods.', img: 'https://via.placeholder.com/300x160?text=Okra' },
-{ name: 'Cucumber', desc: 'Vegetable used fresh in salads.', img: 'https://via.placeholder.com/300x160?text=Cucumber' },
-{ name: 'Zucchini', desc: 'Summer squash grown for local markets.', img: 'https://via.placeholder.com/300x160?text=Zucchini' },
-{ name: 'Radish', desc: 'Root vegetable, fast-growing.', img: 'https://via.placeholder.com/300x160?text=Radish' },
-{ name: 'Beetroot', desc: 'Root vegetable, nutritious and versatile.', img: 'https://via.placeholder.com/300x160?text=Beetroot' },
-{ name: 'Chili', desc: 'Spicy vegetable used for seasoning.', img: 'https://via.placeholder.com/300x160?text=Chili' },
-{ name: 'Vanilla', desc: 'High-value spice crop, tropical climate.', img: 'https://via.placeholder.com/300x160?text=Vanilla' },
-{ name: 'Coffee', desc: 'Major export crop for Rwanda.', img: 'https://via.placeholder.com/300x160?text=Coffee' },
-{ name: 'Tea', desc: 'High-value leaf crop grown in high altitudes.', img: 'https://via.placeholder.com/300x160?text=Tea' },
-{ name: 'Sugarcane', desc: 'Cash crop for sugar and ethanol.', img: 'https://via.placeholder.com/300x160?text=Sugarcane' },
-{ name: 'Tobacco', desc: 'Cash crop grown in specific zones.', img: 'https://via.placeholder.com/300x160?text=Tobacco' },
-{ name: 'Wheat', desc: 'Cereal crop suitable for cooler highlands.', img: 'https://via.placeholder.com/300x160?text=Wheat' },
-{ name: 'Barley', desc: 'Temperate cereal crop.', img: 'https://via.placeholder.com/300x160?text=Barley' },
-{ name: 'Millet', desc: 'Drought-tolerant cereal.', img: 'https://via.placeholder.com/300x160?text=Millet' },
-{ name: 'Sorghum', desc: 'Staple cereal, drought-resistant.', img: 'https://via.placeholder.com/300x160?text=Sorghum' },
-{ name: 'Sunflower', desc: 'Oilseed crop.', img: 'https://via.placeholder.com/300x160?text=Sunflower' },
-{ name: 'Sesame', desc: 'Oilseed crop for local and export markets.', img: 'https://via.placeholder.com/300x160?text=Sesame' },
-{ name: 'Peas', desc: 'Legume for food and soil enrichment.', img: 'https://via.placeholder.com/300x160?text=Peas' },
-{ name: 'Chickpeas', desc: 'Legume crop, high protein.', img: 'https://via.placeholder.com/300x160?text=Chickpeas' },
-{ name: 'Lentils', desc: 'Legume suitable for intercropping.', img: 'https://via.placeholder.com/300x160?text=Lentils' },
-{ name: 'Mango (Alphonso)', desc: 'Tropical fruit with export potential.', img: 'https://via.placeholder.com/300x160?text=Mango+Alphonso' },
-{ name: 'Ginger', desc: 'Spice crop, medicinal value.', img: 'https://via.placeholder.com/300x160?text=Ginger' },
-{ name: 'Turmeric', desc: 'Spice with health benefits.', img: 'https://via.placeholder.com/300x160?text=Turmeric' },
-{ name: 'Basil', desc: 'Herb crop, culinary use.', img: 'https://via.placeholder.com/300x160?text=Basil' },
-{ name: 'Mint', desc: 'Herb crop for flavoring and tea.', img: 'https://via.placeholder.com/300x160?text=Mint' },
-{ name: 'Thyme', desc: 'Culinary herb.', img: 'https://via.placeholder.com/300x160?text=Thyme' },
-{ name: 'Rosemary', desc: 'Herb with culinary and ornamental use.', img: 'https://via.placeholder.com/300x160?text=Rosemary' },
-{ name: 'Lavender', desc: 'Ornamental and aromatic herb.', img: 'https://via.placeholder.com/300x160?text=Lavender' },
-{ name: 'Chives', desc: 'Culinary herb, quick-growing.', img: 'https://via.placeholder.com/300x160?text=Chives' },
-{ name: 'Parsley', desc: 'Culinary herb.', img: 'https://via.placeholder.com/300x160?text=Parsley' },
-{ name: 'Coriander', desc: 'Herb used in cooking.', img: 'https://via.placeholder.com/300x160?text=Coriander' },
-{ name: 'Fennel', desc: 'Herb and vegetable.', img: 'https://via.placeholder.com/300x160?text=Fennel' },
-{ name: 'Okra (Red)', desc: 'Vegetable with high market value.', img: 'https://via.placeholder.com/300x160?text=Okra+Red' },
-{ name: 'Okra (Green)', desc: 'Edible pods, popular vegetable.', img: 'https://via.placeholder.com/300x160?text=Okra+Green' },
-{ name: 'Coconut', desc: 'Tropical fruit and oil crop.', img: 'https://via.placeholder.com/300x160?text=Coconut' },
-{ name: 'Papaya (Red)', desc: 'Fruit crop rich in vitamins.', img: 'https://via.placeholder.com/300x160?text=Papaya+Red' },
-{ name: 'Papaya (Yellow)', desc: 'Sweet fruit, tropical.', img: 'https://via.placeholder.com/300x160?text=Papaya+Yellow' },
-{ name: 'Pomegranate', desc: 'Fruit crop, drought tolerant.', img: 'https://via.placeholder.com/300x160?text=Pomegranate' },
-{ name: 'Guava', desc: 'Tropical fruit, high vitamin C.', img: 'https://via.placeholder.com/300x160?text=Guava' },
-{ name: 'Jackfruit', desc: 'Large tropical fruit.', img: 'https://via.placeholder.com/300x160?text=Jackfruit' },
-{ name: 'Breadfruit', desc: 'Tropical fruit for food security.', img: 'https://via.placeholder.com/300x160?text=Breadfruit' },
-{ name: 'Lychee', desc: 'Tropical fruit with delicate flavor.', img: 'https://via.placeholder.com/300x160?text=Lychee' },
-{ name: 'Longan', desc: 'Exotic fruit crop.', img: 'https://via.placeholder.com/300x160?text=Longan' },
-{ name: 'Tamarind', desc: 'Fruit tree for food and spice.', img: 'https://via.placeholder.com/300x160?text=Tamarind' },
-{ name: 'Sapodilla', desc: 'Tropical fruit, sweet taste.', img: 'https://via.placeholder.com/300x160?text=Sapodilla' },
-{ name: 'Soursop', desc: 'Tropical fruit for juice and pulp.', img: 'https://via.placeholder.com/300x160?text=Soursop' },
-{ name: 'Carambola', desc: 'Star fruit, tropical.', img: 'https://via.placeholder.com/300x160?text=Carambola' },
-{ name: 'Loquat', desc: 'Temperate fruit.', img: 'https://via.placeholder.com/300x160?text=Loquat' },
-{ name: 'Mulberry', desc: 'Fruit tree, edible berries.', img: 'https://via.placeholder.com/300x160?text=Mulberry' },
-{ name: 'Blackberry', desc: 'Berry crop, temperate climate.', img: 'https://via.placeholder.com/300x160?text=Blackberry' },
-{ name: 'Cranberry', desc: 'Berry crop, grown in cooler zones.', img: 'https://via.placeholder.com/300x160?text=Cranberry' },
-{ name: 'Gooseberry', desc: 'Small fruit crop.', img: 'https://via.placeholder.com/300x160?text=Gooseberry' },
-{ name: 'Currant', desc: 'Berry crop, temperate climate.', img: 'https://via.placeholder.com/300x160?text=Currant' },
-{ name: 'Elderberry', desc: 'Small fruit used for juice and jam.', img: 'https://via.placeholder.com/300x160?text=Elderberry' },
-{ name: 'Fig', desc: 'Fruit tree for food and markets.', img: 'https://via.placeholder.com/300x160?text=Fig' },
-{ name: 'Olive', desc: 'Fruit crop for oil production.', img: 'https://via.placeholder.com/300x160?text=Olive' },
-{ name: 'Date Palm', desc: 'Tropical fruit tree, high-value crop.', img: 'https://via.placeholder.com/300x160?text=Date+Palm' },
-{ name: 'Rambutan', desc: 'Exotic tropical fruit.', img: 'https://via.placeholder.com/300x160?text=Rambutan' },
-{ name: 'Mangosteen', desc: 'Tropical fruit with medicinal value.', img: 'https://via.placeholder.com/300x160?text=Mangosteen' },
-{ name: 'Durian', desc: 'Exotic tropical fruit, high value.', img: 'https://via.placeholder.com/300x160?text=Durian' }
-];
+    // 100 crops with planting & harvesting months (placeholders)
+    const cropsSeasons = [
+        {name:'Maize', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Irish Potato', seasons:[{month:'Mar', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Beans', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Cassava', seasons:[{month:'Mar', activity:'Planting'},{month:'Oct', activity:'Harvesting'}]},
+        {name:'Banana', seasons:[{month:'Jan', activity:'Planting'},{month:'Nov', activity:'Harvesting'}]},
+        {name:'Sweet Potato', seasons:[{month:'Feb', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Yams', seasons:[{month:'Feb', activity:'Planting'},{month:'Sep', activity:'Harvesting'}]},
+        {name:'Soybeans', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Groundnuts', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Tomatoes', seasons:[{month:'Mar', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Onions', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Garlic', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Cabbage', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Carrots', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Peppers', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Eggplant', seasons:[{month:'Mar', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Spinach', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Amaranth', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Pumpkin', seasons:[{month:'Mar', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Watermelon', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Pineapple', seasons:[{month:'Jan', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]},
+        {name:'Papaya', seasons:[{month:'Jan', activity:'Planting'},{month:'Nov', activity:'Harvesting'}]},
+        {name:'Passion Fruit', seasons:[{month:'Feb', activity:'Planting'},{month:'Oct', activity:'Harvesting'}]},
+        {name:'Avocado', seasons:[{month:'Feb', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]},
+        {name:'Mango', seasons:[{month:'Feb', activity:'Planting'},{month:'Nov', activity:'Harvesting'}]},
+        {name:'Apple', seasons:[{month:'Mar', activity:'Planting'},{month:'Aug', activity:'Harvesting'}]},
+        {name:'Pear', seasons:[{month:'Mar', activity:'Planting'},{month:'Aug', activity:'Harvesting'}]},
+        {name:'Plum', seasons:[{month:'Mar', activity:'Planting'},{month:'Aug', activity:'Harvesting'}]},
+        {name:'Grapes', seasons:[{month:'Feb', activity:'Planting'},{month:'Aug', activity:'Harvesting'}]},
+        {name:'Strawberry', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Raspberry', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Blueberry', seasons:[{month:'Feb', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Lettuce', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Kale', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Broccoli', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Cauliflower', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Okra', seasons:[{month:'Mar', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Cucumber', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Zucchini', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Radish', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Beetroot', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Chili', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Vanilla', seasons:[{month:'Feb', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]},
+        {name:'Coffee', seasons:[{month:'Feb', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]},
+        {name:'Tea', seasons:[{month:'Feb', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]},
+        {name:'Sugarcane', seasons:[{month:'Jan', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]},
+        {name:'Tobacco', seasons:[{month:'Feb', activity:'Planting'},{month:'Oct', activity:'Harvesting'}]},
+        {name:'Wheat', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Barley', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Millet', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Sorghum', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Sunflower', seasons:[{month:'Feb', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Sesame', seasons:[{month:'Feb', activity:'Planting'},{month:'Jul', activity:'Harvesting'}]},
+        {name:'Peas', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Chickpeas', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Lentils', seasons:[{month:'Feb', activity:'Planting'},{month:'May', activity:'Harvesting'}]},
+        {name:'Ginger', seasons:[{month:'Feb', activity:'Planting'},{month:'Nov', activity:'Harvesting'}]},
+        {name:'Turmeric', seasons:[{month:'Feb', activity:'Planting'},{month:'Nov', activity:'Harvesting'}]},
+        {name:'Basil', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Mint', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Thyme', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Rosemary', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Lavender', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Chives', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Parsley', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Coriander', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Fennel', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Spinach Local', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Kale Local', seasons:[{month:'Feb', activity:'Planting'},{month:'Apr', activity:'Harvesting'}]},
+        {name:'Peppermint', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Lemon Grass', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Stevia', seasons:[{month:'Feb', activity:'Planting'},{month:'Jun', activity:'Harvesting'}]},
+        {name:'Coffee Arabica', seasons:[{month:'Feb', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]},
+        {name:'Coffee Robusta', seasons:[{month:'Feb', activity:'Planting'},{month:'Dec', activity:'Harvesting'}]}
+    ];
 
-const grid = document.getElementById('cropsGrid');
-crops.forEach(crop => {
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.innerHTML = `
-    <img src="${crop.img}" alt="${crop.name}">
-    <div class="content">
-      <h3>${crop.name}</h3>
-      <p>${crop.desc}</p>
-    </div>
-  `;
-  grid.appendChild(card);
-});
+    const grid = document.getElementById('season-grid');
+
+    cropsSeasons.forEach(crop => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        let tableRows = crop.seasons.map(s => `<tr><td>${s.month}</td><td>${s.activity}</td></tr>`).join('');
+        card.innerHTML = `<h3>${crop.name}</h3>
+        <table>
+            <thead><tr><th>Month</th><th>Activity</th></tr></thead>
+            <tbody>${tableRows}</tbody>
+        </table>`;
+        grid.appendChild(card);
+    });
 </script>
 
 </body>
