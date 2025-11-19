@@ -1,238 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriSmart - Farm Management</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: linear-gradient(to right, #2c7744, #4caf50);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .logo i {
-            color: #ffeb3b;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #2c7744;
-        }
-        
-        .feature-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #2c7744;
-        }
-        
-        .feature-desc {
-            color: #666;
-            font-size: 1rem;
-        }
-        
-        .integration {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 50px;
-            text-align: center;
-        }
-        
-        .integration-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #2c7744;
-        }
-        
-        .integration-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .weather-icon {
-            font-size: 4rem;
-            color: #4a90e2;
-        }
-        
-        .weather-info {
-            text-align: left;
-            max-width: 400px;
-        }
-        
-        .weather-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #4a90e2;
-        }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            border-radius: 20px 20px 0 0;
-            margin-top: 30px;
-        }
-        
-        .team {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .team-member {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 500;
-        }
-        
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
-            .integration-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .weather-info {
-                text-align: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriSmart Rwanda – Crops Database</title>
+  <meta name="description" content="AgriSmart Rwanda provides a comprehensive database of crops grown in Rwanda, including images, descriptions, planting, and harvesting seasons.">
+  <meta name="keywords" content="AgriSmart Rwanda, Rwanda crops, crop database, planting seasons, harvest seasons, agriculture">
+  <meta name="author" content="AgriSmart Rwanda">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      background: linear-gradient(to right, #2c7744, #4caf50);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .logo i {
+      color: #ffeb3b;
+    }
+    
+    .tagline {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .page-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #2c7744;
+      font-size: 2.2rem;
+    }
+    
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+      outline: none;
+    }
+    
+    .search-input:focus {
+      box-shadow: 0 5px 15px rgba(44, 119, 68, 0.2);
+    }
+    
+    .search-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #2c7744;
+      font-size: 1.2rem;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .card .content {
+      padding: 20px;
+    }
+    
+    .card .content h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.4rem;
+      color: #2c7744;
+    }
+    
+    .card .content p {
+      margin: 0;
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2c7744;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(44, 119, 68, 0.3);
+      margin-bottom: 30px;
+    }
+    
+    .back-btn:hover {
+      background: #236338;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(44, 119, 68, 0.4);
+    }
+    
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      border-radius: 20px 20px 0 0;
+      margin-top: 50px;
+    }
+    
+    .team {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .team-member {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 500;
+    }
+    
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+      font-size: 1.2rem;
+      grid-column: 1 / -1;
+    }
+    
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      
+      .page-title {
+        font-size: 1.8rem;
+      }
+      
+      .logo {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                AgriSmart
-            </div>
-            <p class="tagline">AI-powered insights for optimal crop growth and yield maximization</p>
-        </div>
-    </header>
-    
+  <header>
     <div class="container">
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="feature-title">Management</h3>
-                <p class="feature-desc">AI-powered insights for optimal crop growth and yield maximization</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-tasks"></i>
-                </div>
-                <h3 class="feature-title">Planning</h3>
-                <p class="feature-desc">Smart recommendations for planting and harvesting based on data analytics</p>
-            </div>
-        </div>
-        
-        <div class="integration">
-            <h2 class="integration-title">Integration</h2>
-            <div class="integration-content">
-                <div class="weather-icon">
-                    <i class="fas fa-cloud-sun"></i>
-                </div>
-                <div class="weather-info">
-                    <h3 class="weather-title">Real-time Weather Data</h3>
-                    <p>Access up-to-date weather information for better farming decisions. Our system integrates with global weather services to provide accurate forecasts.</p>
-                </div>
-            </div>
-        </div>
+      <div class="logo">
+        <i class="fas fa-seedling"></i>
+        AgriSmart Rwanda
+      </div>
+      <p class="tagline">Comprehensive crop database for Rwandan agriculture</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    
+    <h1 class="page-title">Crop Database – Rwanda</h1>
+    
+    <div class="search-container">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search for crops...">
+      <i class="fas fa-search search-icon"></i>
     </div>
     
-    <footer>
-        <div class="container">
-            <div class="team">
-                <div class="team-member">Danaa</div>
-                <div class="team-member">Mihait</div>
-                <div class="team-member">Dia</div>
-                <div class="team-member">Sunat Datta</div>
-            </div>
-            <p class="copyright">© 2023 AgriSmart. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="grid" id="cropsGrid"></div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="team">
+        <div class="team-member">Danaa</div>
+        <div class="team-member">Mihait</div>
+        <div class="team-member">Dia</div>
+        <div class="team-member">Sunat Datta</div>
+      </div>
+      <p class="copyright">© 2023 AgriSmart Rwanda. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script>
+    const crops = [
+      { name: 'Maize', desc: 'A staple cereal crop grown widely across Rwanda.', img: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFpemV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Irish Potato', desc: 'High-yield tuber crop, suited for cooler high altitudes.', img: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90YXRvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Beans', desc: 'Important protein source — grows well in many regions.', img: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Cassava', desc: 'Drought-tolerant root crop, good for food security.', img: 'https://images.unsplash.com/photo-1615471618986-0c32ffffffff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fzc2F2YXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Banana (Cooking)', desc: 'Major staple in Rwanda, especially in western and central zones.', img: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFuYW5hfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Sweet Potato', desc: 'Nutritious root crop, versatile in cooking.', img: 'https://images.unsplash.com/photo-1599088348540-5d1b6e8c8c0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3dlZXQlMjBwb3RhdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Tomatoes', desc: 'Widely grown vegetable for fresh consumption and sauce.', img: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9tYXRvfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Onions', desc: 'Essential spice and vegetable crop.', img: 'https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b25pb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Cabbage', desc: 'Leafy vegetable, high demand locally.', img: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FiYmFnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Carrots', desc: 'Root vegetable, rich in nutrients.', img: 'https://images.unsplash.com/photo-1445282768818-728615cc910a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fycm90fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Coffee', desc: 'Major export crop for Rwanda.', img: 'https://images.unsplash.com/photo-1587734195503-904fca47e0e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60' },
+      { name: 'Tea', desc: 'High-value leaf crop grown in high altitudes.', img: 'https://images.unsplash.com/photo-1556678893-9f5276797d7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60' }
+    ];
+
+    const grid = document.getElementById('cropsGrid');
+    const searchInput = document.getElementById('searchInput');
+    
+    function renderCrops(cropList) {
+      grid.innerHTML = '';
+      
+      if (cropList.length === 0) {
+        grid.innerHTML = '<div class="no-results">No crops found matching your search.</div>';
+        return;
+      }
+      
+      cropList.forEach(crop => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${crop.img}" alt="${crop.name}">
+          <div class="content">
+            <h3>${crop.name}</h3>
+            <p>${crop.desc}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+    
+    // Initial render
+    renderCrops(crops);
+    
+    // Search functionality
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const filteredCrops = crops.filter(crop => 
+        crop.name.toLowerCase().includes(searchTerm) || 
+        crop.desc.toLowerCase().includes(searchTerm)
+      );
+      renderCrops(filteredCrops);
+    });
+  </script>
 </body>
 </html>
